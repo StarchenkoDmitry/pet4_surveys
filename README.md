@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Online Survey Builder
 
-## Getting Started
+This is a pet project Surveys.
 
-First, run the development server:
+Online Survey Builder - это удобный веб-приложение, которое позволяет пользователям создавать и проводить онлайн-опросы. С помощью этого инструмента люди могут легко собирать данные и мнения от своей аудитории, создавая красивые и интерактивные опросы, подобные Google Forms.
+
+### Основные функции
+- Создание опросов: используя интуитивно понятный интерфейс, пользователи могут создавать свои собственные опросы с различными типами вопросов, такими как одиночный выбор, множественный выбор, текстовый ответ и другие.
+- Настройка внешнего вида: пользователи могут настроить внешний вид своих опросов, выбирая из различных тем, шаблонов и цветовых схем, чтобы создать уникальный дизайн, соответствующий их бренду или предпочтениям.
+- Поддержка мобильных устройств: опросы, созданные с помощью Online Survey Builder, полностью адаптивны и могут быть заполнены на различных устройствах, включая смартфоны и планшеты.
+- Анализ результатов: после того, как опрос завершен, пользователи могут просматривать и анализировать результаты в удобной и понятной форме, а также предоставляются различные графики и диаграммы, чтобы помочь визуализировать и интерпретировать полученные данные.
+
+### Технологии
+- Frontend: Next.JS, TypeScript, HTML, CSS, Tyilwind.
+
+
+### Старт
+Запуск development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере, чтобы увидеть результат.
