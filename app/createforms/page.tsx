@@ -1,10 +1,12 @@
-import Header from '@/components/ui/Header'
-import Image from 'next/image'
+import Header from "@/components/ui/Header";
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <Header/>
+      <div>
+        Create forms
+      </div>
     </main>
   )
 }
