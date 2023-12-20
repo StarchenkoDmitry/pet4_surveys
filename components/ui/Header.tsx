@@ -16,8 +16,11 @@ function Header({}: Props) {
                 </a>
 
                 <ul className='ml-auto flex [&>*]:p-2'>
-                    <li>My forms</li>
-                    <li>about</li>
+                    {/* <li>My forms</li>
+                    <li>about</li> */}
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/templates">Templates</a></li>
+                    <li><a href="/createforms">createforms</a></li>
                 </ul>
 
                 <button className='p-1 m-1 w-8 h-8 min-[1300px]:hidden active:scale-125 transition-all text-black bg-white rounded'>
