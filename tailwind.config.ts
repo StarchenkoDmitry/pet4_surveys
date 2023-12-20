@@ -6,6 +6,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  important:"#body",//для фика мирцания css styles tailwind
   theme: {
     extend: {
       backgroundImage: {
