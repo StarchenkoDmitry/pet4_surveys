@@ -1,4 +1,4 @@
-import { SurveyTemplatesList } from "@/components/interfaces/Question";
+import { SurveyTemplatesList } from "../interfaces/Question";
 import { v4 } from "uuid";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
