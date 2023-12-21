@@ -38,3 +38,6 @@ next-env.d.ts
 
 # my foldes
 /_old
+
+# my secret files
+.env
