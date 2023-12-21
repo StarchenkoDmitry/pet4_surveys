@@ -1,16 +1,15 @@
 'use client'
-import Header from "@/components/ui/Header";
-import { useEffect, useState } from "react";
-import { LoadSurveyList, SaveSurveyList } from "../../helpers/SurveyTemplates";
-import { SurveyTemplatesList } from "@/components/interfaces/Question";
+import { useEffect } from "react";
 import { Button } from "@mui/material";
 import { PlusIcon } from "@heroicons/react/16/solid";
 import { useSurveyTemplatesStore } from "../../store/SurveyBuilderStore";
+
+import Header from "@/components/ui/Header";
 import TemplateView from "@/components/ui/templates/TemplateView";
 
 
 export default function Home() {
-
+  console.log("Templates Page");
   const { templates, create } = useSurveyTemplatesStore()
   
   useEffect(()=>{

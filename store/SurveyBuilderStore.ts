@@ -32,5 +32,8 @@ export const useSurveyTemplatesStore = create(persist<ISurveyTemplatesStore>(
             });
         },
     }),
-    { name:"__TemplatesStore",skipHydration:true })
+    { 
+        name:"__TemplatesStore",
+        skipHydration:true
+    })
 );
