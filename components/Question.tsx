@@ -1,6 +1,6 @@
 import { FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import React from 'react'
-import { SurveyData } from './interfaces/Question'
+import { SurveyData } from '../interfaces/Question'
 
 interface Props {
     question:SurveyData;

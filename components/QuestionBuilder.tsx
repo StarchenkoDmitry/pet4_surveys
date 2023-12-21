@@ -1,6 +1,6 @@
 import { Button, RadioGroup, TextField } from '@mui/material'
 import React from 'react'
-import { SurveyData } from './interfaces/Question'
+import { SurveyData } from '../interfaces/Question'
 import { PlusIcon } from '@heroicons/react/16/solid';
 import { v4 } from 'uuid';
 

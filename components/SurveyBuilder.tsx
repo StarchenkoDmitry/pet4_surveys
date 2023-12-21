@@ -3,7 +3,7 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
 import { Button, Input, TextField, Typography } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
-import { SurveyData, SurveyTypes } from "./interfaces/Question";
+import { SurveyData, SurveyTypes } from "../interfaces/Question";
 import { CreateRandomQuestion, CreateRandomSelectData } from "../helpers/RandomData";
 import QuestionBuilder from "./QuestionBuilder";
 import { useSurveyTemplatesStore } from "../store/SurveyBuilderStore";

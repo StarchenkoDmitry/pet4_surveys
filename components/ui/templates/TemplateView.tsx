@@ -1,5 +1,5 @@
 'use client'
-import { SurveyTemplates } from '@/components/interfaces/Question';
+import { SurveyTemplates } from '../../../interfaces/Question';
 import { TrashIcon } from '@heroicons/react/24/solid'
 import { Button } from '@mui/material';
 import React, { useLayoutEffect, useState } from 'react'
