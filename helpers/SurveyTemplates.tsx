@@ -1,4 +1,4 @@
-import { SurveyTemplatesList } from "@/components/interfaces/Question"
+import { SurveyTemplatesList } from "../interfaces/Question"
 
 const SURVEYREFDATA_KEY = "_#_#_#_SurveyRefData";
 
