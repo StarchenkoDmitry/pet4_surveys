@@ -1,9 +1,9 @@
 import { FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
 import React from 'react'
-import { QuestionData } from './interfaces/Question'
+import { SurveyData } from './interfaces/Question'
 
 interface Props {
-    question:QuestionData;
+    question:SurveyData;
 }
 
 function Question({question}: Props) {
@@ -25,6 +25,7 @@ function Question({question}: Props) {
                     {
                         question.questions.map(s=>(
                             <FormControlLabel 
+                                key={s.id}
                                 control={<Radio />} 
                                 label={s.text} 
                                 value={s.text} 

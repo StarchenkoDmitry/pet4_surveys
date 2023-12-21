@@ -2,10 +2,12 @@
 
 import { PlusIcon } from "@heroicons/react/16/solid";
 import { Button, Input, TextField, Typography } from "@mui/material";
-import { ChangeEvent, useState } from "react";
-import { QuestionData, QuestionTypes } from "./interfaces/Question";
-import { CreateRandomQuestion } from "../utils/Helper";
+import { ChangeEvent, useEffect, useState } from "react";
+import { SurveyData, SurveyTypes } from "./interfaces/Question";
+import { CreateRandomQuestion, CreateRandomSelectData } from "../helpers/RandomData";
 import QuestionBuilder from "./QuestionBuilder";
+import { useSurveyTemplatesStore } from "../store/SurveyBuilderStore";
+import { v4 } from "uuid";
 
 interface Props {
 }
@@ -16,27 +18,39 @@ function SurveyBuilder({}: Props) {
         console.log(event.target.value);
     }
 
-    const [questions,setQuestion] = useState<QuestionData[]>([
-        {
-            title:"Randm36",
-            types:QuestionTypes.OneSelect,
-            questions:[
-                {text:"gfghdh"},
-                {text:"gfghdh5"},
-                {text:"gfghdh7"},
-                {text:"gfghdh457"},
-            ],
-        }
-    ])
+    const state  = useSurveyTemplatesStore(state=>state)
 
+    const [questions,setQuestion] = useState<SurveyData[]>()
+
+    useEffect(() => {
+        setQuestion([
+            {
+                id:v4(),
+                title:"Randm36",
+                types:SurveyTypes.OneSelect,
+                questions:[
+                    CreateRandomSelectData(),
+                    CreateRandomSelectData(),
+                    CreateRandomSelectData(),
+                    CreateRandomSelectData(),
+                    CreateRandomSelectData(),
+                ],
+            }
+        ])
+        // useSurveyTemplatesStore.getState().load();
+    }, [])
+    console.log("STRICT",questions)
+
+    const [_,gdfg] = useState(true);
     const handlerAddQuestion = ()=>{
-        setQuestion(prev=>([...prev, CreateRandomQuestion()]))
+      gdfg(p=>!p);
+        // setQuestion(prev=>([...prev, CreateRandomQuestion()]))
     }
 
     return (
         <div className='p-2 bg-sky-100 rounded-lg '>
             <TextField 
-                className="my-2"
+                className="m-2"
                 id="outlined-basic" 
                 label="Surney title" 
                 variant="outlined" 
@@ -44,12 +58,14 @@ function SurveyBuilder({}: Props) {
                 size="small"
                 onChange={handlerName}
             />
-
-            <Typography className="mx-3" component="h3">Questions:</Typography>
-
+            <Typography className="mx-4" component="h3">Questions:</Typography>
+            {/* <span>{state.num}</span>
+            <button onClick={()=>{
+                useSurveyTemplatesStore.setState((p)=>({num:p.num+1}));
+            }}>CLKC</button> */}
             <div className="">
             {
-                questions.map((q,i)=><QuestionBuilder key={i}
+                questions?.map((q,i)=><QuestionBuilder key={i}
                     className="my-2"
                     question={q}
                 />)
@@ -58,7 +74,7 @@ function SurveyBuilder({}: Props) {
             
             
             <Button 
-                className="w-fit my-2"
+                className="w-fit mt-2"
                 component="label"
                 variant="contained"
                 startIcon={<PlusIcon className="w-4 h-4"/>}

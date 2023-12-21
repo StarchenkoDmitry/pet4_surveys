@@ -1,14 +1,25 @@
-export enum QuestionTypes{
+export enum SurveyTypes{
     OneSelect,
     MultySelect,
 }
 
 export interface SelectData{
+    id:string;
     text:string;
 }
 
-export interface QuestionData{
+export interface SurveyData{
+    id:string;
+
     title:string;
-    types:QuestionTypes;
+    types:SurveyTypes;
+    
     questions:SelectData[]
 }
+
+export type SurveyTemplates = {
+    id:string;
+    title:string;
+}
+
+export type SurveyTemplatesList = SurveyTemplates[];

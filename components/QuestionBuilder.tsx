@@ -1,16 +1,26 @@
-import { FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material'
+import { Button, RadioGroup, TextField } from '@mui/material'
 import React from 'react'
-import { QuestionData } from './interfaces/Question'
+import { SurveyData } from './interfaces/Question'
+import { PlusIcon } from '@heroicons/react/16/solid';
+import { v4 } from 'uuid';
+
 
 interface Props {
     className?:string;
-    question:QuestionData;
+    question:SurveyData;
 }
 
 function QuestionBuilder({
     question,
     className = ""
 }: Props) {
+
+    const handlerAddVariant = ()=>{
+        question.questions.push({
+            id:v4(),
+            text:`variant-${Math.random()}`
+        })
+    }
 
     return (
         <div className={`p-2 bg-white rounded-lg ${className}`}>
@@ -28,16 +38,30 @@ function QuestionBuilder({
                 >
                     {
                         question.questions.map((s,i)=>(
-                            <FormControlLabel 
-                                key={i}
-                                control={<Radio />} 
-                                label={s.text} 
-                                value={s.text} 
+                            <TextField 
+                                key={s.id}
+                                className="m-2"
+                                variant="outlined" 
+                                size="small"
+                                required
+                                defaultValue={s.text}
+                                InputProps={{
+                                    startAdornment:(<PlusIcon className='w-5 h-5' ></PlusIcon>)
+                                }}
                             />
                         ))
                     }
                 </RadioGroup>
+                <Button 
+                    className='m-2'
+                    variant="outlined" 
+                    startIcon={<PlusIcon className='w-5 h-5'/>} 
+                    onClick={handlerAddVariant}
+                >
+                    Add variant
+                </Button>
             </div>
+            
         </div>
     )
 }
