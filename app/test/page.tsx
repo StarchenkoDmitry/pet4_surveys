@@ -28,6 +28,11 @@ export default async function Home() {
       <p>data {JSON.stringify(data)}</p>
       <p>errorData {JSON.stringify(errorData)}</p>
 
+      <p className='p-1 bg-slate-300'>
+        process.env:
+        {JSON.stringify(process.env)}
+      </p>
+
       {/* <button
         onClick={async ()=>{
           "use server"
