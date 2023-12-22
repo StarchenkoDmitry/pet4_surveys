@@ -1,9 +1,17 @@
+'use client'
 import { Bars3Icon } from '@heroicons/react/24/solid'
+import { Button } from '@mui/material'
 import React from 'react'
 
 interface Props {}
 
 function Header({}: Props) {
+
+    const handleClick = async ()=>{
+        const res = await fetch("/api/auth",{method:"POST"});
+        console.log("RES:",await res.json())
+    }
+
     return (
         <header className='bg-green-500'>
             <div className='m-auto max-w-screen-md flex justify-between'>
@@ -15,9 +23,15 @@ function Header({}: Props) {
                     />
                 </a>
 
+                <Button
+                    className='m-2 bg-purple-400'
+                    variant="contained" 
+                    onClick={handleClick}
+                >
+                    SignUP
+                </Button>
+
                 <ul className='ml-auto flex [&>*]:p-2'>
-                    {/* <li>My forms</li>
-                    <li>about</li> */}
                     <li><a href="/">Home</a></li>
                     <li><a href="/templates">Templates</a></li>
                     <li><a href="/createforms">createforms</a></li>

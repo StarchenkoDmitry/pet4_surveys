@@ -14,5 +14,14 @@ export async function POST(request: NextRequest) {
 
   console.log("DATA:",data)
 
-  return NextResponse.json("Mow");    
+  const response = NextResponse.json("Mow");
+
+  response.cookies.set({
+    name: "jwt2",
+    value: JSON.stringify({myjwt:"SOS"}),
+    maxAge: 60*60*24,
+    httpOnly: true,
+    sameSite: "strict",
+  });
+  return response;
 }
