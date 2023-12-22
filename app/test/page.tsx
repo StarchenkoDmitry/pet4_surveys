@@ -3,8 +3,13 @@ import { GetTemplatesAll } from '../../services/Templates'
 import { useEffect, useState } from 'react'
 import { sql } from '@vercel/postgres';
 
+// import { getServerSession } from "next-auth";
 
 export default async function Home() {
+
+
+  // const ffgf  = getServerSideProps()
+
   let data;
   let errorData;
   try {
