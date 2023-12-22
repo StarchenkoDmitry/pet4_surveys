@@ -33,6 +33,7 @@ function Header({}: Props) {
 
                 <ul className='ml-auto flex [&>*]:p-2'>
                     <li><a href="/">Home</a></li>
+                    <li><a href="/test">Test</a></li>
                     <li><a href="/templates">Templates</a></li>
                     <li><a href="/createforms">createforms</a></li>
                 </ul>

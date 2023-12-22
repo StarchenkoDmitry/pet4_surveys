@@ -3,9 +3,7 @@ import Header from '@/components/ui/Header'
 import { GetTemplatesAll } from '../services/Templates'
 import { useEffect, useState } from 'react'
 
-
 export default function Home() {
-
   const [data,setData]= useState("");
 
   useEffect(()=>{
