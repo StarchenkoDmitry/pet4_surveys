@@ -21,8 +21,27 @@ export default async function Home() {
 
       <h1>Test Page</h1>
 
+      <p>
+        ENV_TEST:{process.env.ENV_TEST}
+        NODE_ENV:{process.env.NODE_ENV}
+      </p>
       <p>data {JSON.stringify(data)}</p>
       <p>errorData {JSON.stringify(errorData)}</p>
+
+      {/* <button
+        onClick={async ()=>{
+          "use server"
+          try {
+            const res = await sql`SELECT * from CARTS where user_id=${"0"}`;
+            
+            console.log("res",res);
+          } catch (error) {
+            console.log("error",error);
+          }
+        }}
+      >
+        TEST CLIKC
+      </button> */}
 
     </main>
   )
