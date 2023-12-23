@@ -8,21 +8,37 @@ import { sql } from '@vercel/postgres';
 export default async function Home() {
 
 
+  // export default function Home({
+  //   pageProps 
+  // }:{pageProps:any}) {
+
+
+
   // const ffgf  = getServerSideProps()
 
-  let data;
-  let errorData;
-  try {
+  let data = "def";
+  let errorData = "def";
 
-    data = await sql`SELECT * from CARTS where user_id=${"4398634"}`;
+  console.log(`render1-${Date.now().toString()}`)
+  const water = await new Promise((res,_)=>{
+    setTimeout(res,5000);
+  });
+  console.log(`render2-${Date.now().toString()}`)
+  // try {
+
+  //   data = await sql`SELECT * from CARTS where user_id=${"4398634"}`;
     
-  } catch (error) {
-    errorData = error;
-  }
+  // } catch (error) {
+  //   errorData = error;
+  // }
 
   return (
     <main className="flex flex-col min-h-screen">
       <Header/>
+      
+      {/* <div>
+        <span>pageProps:{JSON.stringify(pageProps)}</span>
+      </div> */}
 
       <h1>Test Page</h1>
 

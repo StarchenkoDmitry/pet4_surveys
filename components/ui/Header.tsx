@@ -12,6 +12,9 @@ function Header({}: Props) {
         console.log("RES:",await res.json())
     }
 
+    
+  console.log(`Header render/${Date.now().toString()}`)
+
     return (
         <header className='bg-green-500'>
             <div className='m-auto max-w-screen-md flex justify-between'>

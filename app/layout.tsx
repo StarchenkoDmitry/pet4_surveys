@@ -14,12 +14,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  // pageProps,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  // pageProps:any
 }) {
+  // console.log("pageProps:",pageProps)
   return (
     <html lang="eu">
-      <link rel="icon" href="/logo.png" sizes="any" />
+      {/* <link rel="icon" href="/logo.png" sizes="any" /> */}
       <body id='body' className={inter.className}>{children}</body>
     </html>
   )
