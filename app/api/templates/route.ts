@@ -30,6 +30,10 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {  
   const data: SurveyData = await request.json();
 
+  const water = await new Promise((res,_)=>{
+    setTimeout(res,2500);
+  });
+
   console.log("DATA:",data)
 
   const response = NextResponse.json("Mow");

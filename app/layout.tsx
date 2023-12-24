@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 
 import '@/styles/globals.css'
+// import { getServerSession } from 'next-auth/next';
 
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Surveys',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   // pageProps,
 }: {
@@ -20,10 +21,19 @@ export default function RootLayout({
   // pageProps:any
 }) {
   // console.log("pageProps:",pageProps)
+  // console.log(`Layout render-${Date.now().toString()}`)
+  
+  // const data = await getServerSession(authOptions);
+  
   return (
     <html lang="eu">
       {/* <link rel="icon" href="/logo.png" sizes="any" /> */}
-      <body id='body' className={inter.className}>{children}</body>
+      <body 
+        id='body' 
+        // className={inter.className}
+      >
+        {children}
+      </body>
     </html>
   )
 }

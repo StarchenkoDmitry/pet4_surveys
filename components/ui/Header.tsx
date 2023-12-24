@@ -13,7 +13,7 @@ function Header({}: Props) {
     }
 
     
-  console.log(`Header render/${Date.now().toString()}`)
+    // console.log(`Header render/${Date.now().toString()}`)
 
     return (
         <header className='bg-green-500'>
