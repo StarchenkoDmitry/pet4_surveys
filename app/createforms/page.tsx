@@ -9,7 +9,7 @@ export default function Home() {
       <div>Create forms</div>
 
       <div className="mx-auto p-2 max-w-[600px] w-full flex-grow rounded bg-slate-400">
-        <SurveyBuilder/>
+        {/* <SurveyBuilder/> */}
       </div>
 
       <footer>
