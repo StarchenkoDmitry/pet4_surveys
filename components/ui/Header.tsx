@@ -19,6 +19,7 @@ function Header({}: Props) {
                     {/* <li>My forms</li>
                     <li>about</li> */}
                     <li><a href="/">Home</a></li>
+                    <li><a href="/test">Test</a></li>
                     <li><a href="/templates">Templates</a></li>
                     <li><a href="/createforms">createforms</a></li>
                 </ul>
