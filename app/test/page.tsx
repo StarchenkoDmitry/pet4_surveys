@@ -7,7 +7,12 @@ import { CompInder } from "./ghfghfgh";
 
 
 export default async function Home() {
+  console.log("------------Render Test page.")
 
+
+  // if(Math.random() > .8){
+  //   throw new Error("test error");
+  // }
 
   const addDB = async ()=>{
     'use server'
@@ -23,12 +28,8 @@ export default async function Home() {
   const posts = await db.post.findMany();
 
   const session = await auth();
-  console.log("session",session)
+  // console.log("session",session)
   // console.log("KEYS",Object.keys(session?.user||{EMTY:"EMTY"}));
-  
-  const fhfg = await auth((req)=>{
-    console.log("REQ",req)
-  })
 
   return (
     <main className="flex flex-col min-h-screen">

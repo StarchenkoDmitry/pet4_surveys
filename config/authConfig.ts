@@ -16,7 +16,53 @@ export const { handlers, auth } = NextAuth({
         //         disk_usage2: profile.disk_usage,
         //     };
         // },
+        profile:(profile,token)=>{
+            console.log("NextAuth profile:",profile)
+            console.log("NextAuth token:",token)
+            token.access_token
+            return {
+                id: profile.id.toString(),
+                name: profile.name,
+                email: profile.email,
+                image: "LOLU"+profile.avatar_url,
+                disk_usage2: profile.disk_usage,
+            };
+        },        
     })],
+    callbacks: {
+        async jwt({token,user, session,trigger}){
+            console.log("/jwt:",token,user,session,trigger);
+            if(user){
+                token.textfield = `testfiled code ${Math.random()}`
+            }
+            return token;
+        },
+        async session({ session, newSession, token, trigger, user}:any){
+            console.log("/session:",session,newSession,token,trigger,user);
+            // session.user.mama = 19;
+            session.user.fieldtest = token.textfield;
+            // await new Promise((res,_)=>{setTimeout(res,2000);})
+            // user['petyu'] = "zenalalak";
+            return session;
+        },
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log("/signIn:",user,account,profile,email,credentials);
+            // user.kek = 999;
+            // user.id = profile.id;
+            return true;
+        }
+
+        // signIn:async function({user, account, profile}) {
+        //     // Получение дополнительных данных пользователя GitHub и сохранение их в объекте сессии
+        //     // if(!profile)return false;
+        //     // user.id = profile.id;
+        //     // user.created_at = profile.created_at;
+        //     user.gfg = 
+
+        //     return true;
+        // }
+    }
+
     // callbacks:{
     //     // async authorized({ request, auth }) {
     //     //     const url = request.nextUrl
