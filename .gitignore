@@ -41,3 +41,6 @@ next-env.d.ts
 
 # my secret files
 .env
+
+# docker postgresql db
+docker-compose.yaml
