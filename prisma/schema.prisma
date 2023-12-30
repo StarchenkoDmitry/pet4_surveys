@@ -9,26 +9,26 @@ datasource db {
 
 
 model User{
-  id  String @id @default(uuid())
-  ceatedAt DateTime @default(now())
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
   updatedAt DateTime @updatedAt()
 
-  name String?
+  name    String?
   surname String?
 
-  tokens AccessToken[]
+  tokens    AccessToken[]
   providers GithubProvider[]
-  templates Template[]
+  templates SurveyTemplate[]
 }
 
 
 model AccessToken{
-  id  String @id @default(uuid())
-  ceatedAt DateTime @default(now())
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
   updatedAt DateTime @updatedAt()
 
   accessToken String @unique
-  expiresIn DateTime 
+  expiresIn   DateTime 
 
   userId String
   user User @relation(fields: [userId],references: [id])
@@ -36,15 +36,15 @@ model AccessToken{
 
 
 model GithubProvider{
-  id  String @id @default(uuid())  
-  ceatedAt DateTime @default(now())
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
   updatedAt DateTime @updatedAt()
 
   //github profile data here
   accountId String @unique
-  name String?
-  login String?
-  email String?
+  name      String?
+  login     String?
+  email     String?
   avatarUrl String?
 
   userId String
@@ -52,14 +52,45 @@ model GithubProvider{
 }
 
 
-model Template{
-  id  String @id @default(uuid())
-  ceatedAt DateTime @default(now())
+
+model SurveyTemplate{
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
   updatedAt DateTime @updatedAt()
 
-  name String
-  testText String
+  title             String
+  questionTemplates QuestionTemplate[]
 
   userId String
   user User @relation(fields: [userId],references: [id])
+}
+
+model QuestionTemplate{
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+  
+  title         String
+  choiceOptiony ChoiceOptiony  
+  varinats      VariantTemplate[]
+
+  qurveyTemplateId String
+  qurveyTemplate SurveyTemplate @relation(fields: [qurveyTemplateId],references: [id])
+}
+
+enum ChoiceOptiony{
+  one
+  many
+}
+
+model VariantTemplate{
+  id        String   @id @default(uuid())
+  ceatedAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  text    String
+  message String?
+
+  questionTemplateId String
+  questionTemplate QuestionTemplate @relation(fields: [questionTemplateId],references: [id])
 }
