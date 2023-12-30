@@ -10,21 +10,56 @@ datasource db {
 
 model User{
   id  String @id @default(uuid())
-  name String?
+  ceatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
 
+  name String?
+  surname String?
+
+  tokens AccessToken[]
   providers GithubProvider[]
+  templates Template[]
 }
 
-model GithubProvider{
+
+model AccessToken{
   id  String @id @default(uuid())
-  token String
+  ceatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  accessToken String @unique
+  expiresIn DateTime 
 
   userId String
   user User @relation(fields: [userId],references: [id])
 }
 
+
+model GithubProvider{
+  id  String @id @default(uuid())  
+  ceatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
+  //github profile data here
+  accountId String @unique
+  name String?
+  login String?
+  email String?
+  avatarUrl String?
+
+  userId String
+  user User @relation(fields: [userId],references: [id])
+}
+
+
 model Template{
   id  String @id @default(uuid())
+  ceatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+
   name String
   testText String
+
+  userId String
+  user User @relation(fields: [userId],references: [id])
 }
